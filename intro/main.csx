@@ -1,5 +1,7 @@
 using static System.Math;
 using System.Linq;
+
+
 public class Circle
 {
     public Circle(double radius)
@@ -16,7 +18,7 @@ public class Circle
         }
     }
     public (double Circumference, double Area) Stats
-        => (Circumference, Area);
+                => (Circumference, Area);
 }
 
 public delegate int Comparison<in T>(T x, T y);
