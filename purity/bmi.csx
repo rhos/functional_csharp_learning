@@ -21,6 +21,7 @@ static double ReadDouble(string name)
 //IO
 private static void WriteBmiRange(BmiRange bmiRange)
     => WriteLine($"bmi: {bmiRange}");
+    
 static Func<double, double, double> CalcBmi =
     (double height, double weight) => weight / Pow(height, 2);
 
