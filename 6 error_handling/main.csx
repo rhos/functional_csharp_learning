@@ -1,5 +1,5 @@
 #r"../../functional-csharp-code/LaYumba.Functional/bin/Debug/netstandard1.6/LaYumba.Functional.dll"
-#load"../purity/boc.csx"
+#load"../2 purity/boc.csx"
 using LaYumba.Functional;
 using System.Text.RegularExpressions;
 using static LaYumba.Functional.F;

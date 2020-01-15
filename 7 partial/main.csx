@@ -1,7 +1,7 @@
 #r "../../functional-csharp-code/LaYumba.Functional/bin/Debug/netstandard1.6/LaYumba.Functional.dll"
 #r "nuget: Dapper, 2.0.30"
 #r "nuget: System.Data.SqlClient, 4.7.0"
-#load"../purity/boc.csx"
+#load"../2 purity/boc.csx"
 
 using LaYumba.Functional;
 using static LaYumba.Functional.F;
@@ -133,8 +133,7 @@ public static Validator<MakeTransfer> DateNotPast(Func<DateTime> clock)
             ? Errors.TransferDateIsPast
             : Valid(cmd);
 
-public static Validator<T> FailFast<T>
-    (IEnumerable<Validator<T>> validators)
+public static Validator<T> FailFast<T>(IEnumerable<Validator<T>> validators)
     =>
         t => validators.Aggregate(Valid(t), (acc, validator) => acc.Bind(_ => validator(t)));
 
@@ -196,9 +195,8 @@ class PhoneNumber
     }
 }
 
-static Func<CountryCode, NumberType, string, PhoneNumber>
-    CreatePhoneNumber = (country, type, number)
-        => new PhoneNumber(type, country, number);
+static Func<CountryCode, NumberType, string, PhoneNumber> CreatePhoneNumber 
+    = (country, type, number) => new PhoneNumber(type, country, number);
 
 static Func<NumberType, string, PhoneNumber>
     CreateUkNumber = CreatePhoneNumber.Apply((CountryCode)"uk");
