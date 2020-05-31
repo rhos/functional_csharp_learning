@@ -39,11 +39,11 @@ public static Exceptional<T> Run<T>(this Try<T> @try)
 
 Try<Uri> CreateUri(string uri) => () => new Uri(uri);
 var test = CreateUri("test").Run();
-// var test2 = CreateUri("test")();
+var test2 = CreateUri("test")();
 public static Try<R> Bind<T, R>(this Try<T> @try, Func<T, Try<R>> g)
     => ()
         => @try.Run().Match(
-            Exception: ex => ex,
+            Exception: ex => (Exceptional<R>)ex,
             Success: t => g(t).Run());
 
 public static Try<R> Map<T, R>(this Try<T> @try, Func<T, R> g)
