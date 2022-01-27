@@ -40,13 +40,13 @@ public class TypeInference_Delegate
     string separator = "! ";
     // 1. field
     Func<Greeting, Name, PersonalizedGreeting> GreeterField
-    = (gr, name) => $"{gr}, {name}";
+        = (gr, name) => $"{gr}, {name}";
     // 2. property
     Func<Greeting, Name, PersonalizedGreeting> GreeterProperty
-    => (gr, name) => $"{gr}{separator}{name}";
+        => (gr, name) => $"{gr}{separator}{name}";
     // 3. factory
     Func<Greeting, T, PersonalizedGreeting> GreeterFactory<T>()
-    => (gr, t) => $"{gr}{separator}{t}";
+        => (gr, t) => $"{gr}{separator}{t}";
 }
 
 public static Func<T1, Func<T2, R>> Curry<T1, T2, R>

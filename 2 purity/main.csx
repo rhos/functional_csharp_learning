@@ -1,7 +1,7 @@
 // using static System.Linq.Enumerable;
 using static System.Linq.ParallelEnumerable;
 
-Enumerable.Zip(new[] { 1, 2, 3 }, new[] { "one", "two", "three" }, (num, str) => $"{str}:{num}");
+var test = Enumerable.Zip(new[] { 1, 2, 3 }, new[] { "one", "two", "three" }, (num, str) => $"{str}:{num}");
 
 var shoppingList = new List<string> { "coffee beans", "BANANAS", "Dates" };
 public static string ToSentenceCase(this string s) => s.ToUpper()[0] + s.ToLower().Substring(1);

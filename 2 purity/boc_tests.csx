@@ -10,7 +10,7 @@ public class BocTests
 {
     public void WhenTransferDateIsFuture_ThenValidationPasses()
     {
-        var transfer = new MakeTransfer { Date = new DateTime(2020, 12, 12) };
+        var transfer = new MakeTransfer { Date = new DateTime(2022, 12, 12) };
         var validator = new DateNotPastValidator(new DefaultDateTimeService());
         var actual = validator.IsValid(transfer);
         actual.Should().BeTrue();

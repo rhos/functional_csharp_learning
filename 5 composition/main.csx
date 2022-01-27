@@ -46,6 +46,7 @@ public class MakeTransferController
             //.Map(Normalize)
             .Where(validator.IsValid)
             .ForEach(Book);
+            
     void Book(MakeTransfer transfer)
         => accounts.Get(transfer.DebitedAccountId)
             .Bind(account => account.Debit(transfer.Amount))

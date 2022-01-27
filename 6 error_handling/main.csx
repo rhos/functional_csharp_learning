@@ -44,11 +44,11 @@ public class BookTransferController
 {
     DateTime now;
     Regex bicRegex = new Regex("[A-Z]{11}");
-    Either<Error, Unit> Handle(MakeTransfer cmd)
-    => Right(cmd)
-        .Bind(ValidateBic)
-        .Bind(ValidateDate)
-        .Bind(Save);
+    Either<Error, Unit> Handle(MakeTransfer cmd) 
+        => Right(cmd)
+            .Bind(ValidateBic)
+            .Bind(ValidateDate)
+            .Bind(Save);
 
     Either<Error, MakeTransfer> ValidateBic(MakeTransfer cmd)
     {
